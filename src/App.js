@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import connector from "./connector/connector";
+import config from "./config.json";
+
+import productListFactory from "./container/ProductList"
+import ProductListView from "./components/ProductListView"
+
+connector.baseUrl = config.baseUrl;
+
+const ProductList = productListFactory({View: ProductListView})
 
 function App() {
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <ProductList />
+
     </div>
   );
 }
